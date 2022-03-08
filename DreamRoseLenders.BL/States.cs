@@ -63,22 +63,24 @@
 
         public static string[] Abbreviations()
         {
-            List<string> abbrevList = new List<string>(states.Count);
-            foreach (var state in states)
-            {
-                abbrevList.Add(state.Abbreviations);
-            }
-            return abbrevList.ToArray();
+            return states.Select(state=> state.Abbreviations).ToArray();
+            //List<string> abbrevList = new List<string>(states.Count);
+            //foreach (var state in states)
+            //{
+            //    abbrevList.Add(state.Abbreviations);
+            //}
+            //return abbrevList.ToArray();
         }
 
         public static string[] Names()
         {
-            List<string> nameList = new List<string>(states.Count);
-            foreach (var state in states)
-            {
-                nameList.Add(state.Name);
-            }
-            return nameList.ToArray();
+            return states.Select(state => state.Name).ToArray();
+            //List<string> nameList = new List<string>(states.Count);
+            //foreach (var state in states)
+            //{
+            //    nameList.Add(state.Name);
+            //}
+            //return nameList.ToArray();
         }
 
         public static US_State[] States()
@@ -91,21 +93,16 @@
     class US_State
     {
 
-        public US_State()
-        {
-            Name = null;
-            Abbreviations = null;
-        }
-
+       
         public US_State(string ab, string name)
         {
             Name = name;
             Abbreviations = ab;
         }
 
-        public string? Name { get; set; }
+        public string Name { get; set; }
 
-        public string? Abbreviations { get; set; }
+        public string Abbreviations { get; set; }
 
         public override string ToString()
         {
