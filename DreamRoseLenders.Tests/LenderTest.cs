@@ -11,7 +11,7 @@ namespace DreamRoseLenders.Tests
         public void FullNameTestValid()
         {
             //--Arrange
-            Lender lender = new Lender
+            Lender lender = new Lender()
             {
                 ContactFirstName = "Chelsea",
                 ContactLastName = "Russell"

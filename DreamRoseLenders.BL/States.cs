@@ -1,6 +1,7 @@
-﻿namespace DreamRoseLenders.BL
+﻿using System.Collections.Generic;
+namespace DreamRoseLenders.BL
 {
-    static class StateArray
+   public static class StateArray
     {
         // soure stackoverflow
         static List<US_State> states;
@@ -90,10 +91,12 @@
 
     }
 
-    class US_State
+        public class US_State
     {
+        public US_State()
+        {
+        }
 
-       
         public US_State(string ab, string name)
         {
             Name = name;

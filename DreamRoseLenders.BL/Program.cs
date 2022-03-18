@@ -1,31 +1,72 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CsvHelper;
+using System.Collections;
+using System.Globalization;
 namespace DreamRoseLenders.BL
 {
-    class Program : ProgramBase
+    public class Program
     {
-        public static void Main(string[] args, Lender fullName)
+        public static void Main()
+
         {
-            var lender = new Lender();
-            String FullName;
-            String CompanyName;
-            String Us_State;
+             List<Lender> lender = new List<Lender>();
+            string userInput = "";
+
+
+
+             using (var reader = new StreamReader(@"Lender.csv"))
+             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+             {
+                lender = csv.GetRecords<Lender>().ToList();
+             }
+             do
             {
-                Console.WriteLine("Please enter state you need loan in");
-                bool Name = string.IsNullOrWhiteSpace(args[0]);
-                bool US_State = Name;
-                Console.WriteLine("Lenders who loan in this state are:{CompanyName()}");
-                Console.WriteLine("The company contact is:{FullName()}");
 
-                Console.ReadLine();
+                Console.WriteLine("Please enter state you need loan in?");
+                userInput = Console.ReadLine().ToLower();
+               
+                Console.WriteLine("Lenders who loan in this state are: ");
+                lender.Where(l => l.States.ToLower().Contains(userInput)).ToList().ForEach((lender) =>
+                {
+                    Console.WriteLine(lender.CompanyName);
+                    if (lender.FullName == null || lender.FullName == "")
+                    {
+                        Console.WriteLine("No Name found");
+                    }
+                    else
+                    {
+                        Console.WriteLine("The Contact Name is: " + lender.FullName);
+                    }
+                        Console.WriteLine("The Company Phone Number is: " + lender.CompanyPhoneNumber);
 
-
-            }
+                });
+                Console.WriteLine("To exit, type \"exit\" or enter to pick another state");
+                userInput = Console.ReadLine();
+            } while (userInput != "exit");
         }
-
-
     }
 }
+                       
+                    
+                
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+
+       
+            
+
+
