@@ -1,7 +1,7 @@
 ﻿namespace DreamRoseLenders.BL
 {
 
-    public class Lender
+    public class Lender : LenderAddress
     {
         public LenderAddress lenderAddress;
         public string? FullName
