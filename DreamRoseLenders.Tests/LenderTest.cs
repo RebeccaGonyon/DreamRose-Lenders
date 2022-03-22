@@ -11,12 +11,12 @@ namespace DreamRoseLenders.Tests
         public void FullNameTestValid()
         {
             //--Arrange
-            Lender lender = new Lender()
+            Lender lender = new()
             {
                 ContactFirstName = "Chelsea",
                 ContactLastName = "Russell"
             };
-            string expected = "Russell, Chelsea";
+            string expected = "Chelsea Russell";
 
             //--Act
             string actual = lender.FullName;
@@ -30,6 +30,7 @@ namespace DreamRoseLenders.Tests
             //--Arrange
             Lender lender = new Lender()
             {
+                ContactFirstName = "",
                 ContactLastName = "Russell"
             };
             string expected = "Russell";

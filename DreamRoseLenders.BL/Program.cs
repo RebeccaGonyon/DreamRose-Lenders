@@ -28,9 +28,9 @@ namespace DreamRoseLenders.BL
                 lender.Where(l => l.States.ToLower().Contains(userInput)).ToList().ForEach((lender) =>
                 {
                     Console.WriteLine(lender.CompanyName);
-                    if (lender.FullName == null || lender.FullName == "")
+                    if (lender.FullName == null || lender.FullName ==  " ")
                     {
-                        Console.WriteLine("No Name found");
+                        Console.WriteLine("Contact Name: No Name found");
                     }
                     else
                     {
