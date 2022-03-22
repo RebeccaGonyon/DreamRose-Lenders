@@ -32,7 +32,7 @@ namespace DreamRoseLenders.Tests
             {
                 ContactLastName = "Russell"
             };
-            string expected = "Russell";
+            string expected =  " Russell";
 
             //--Act
             string actual = lender.FullName;
@@ -49,7 +49,7 @@ namespace DreamRoseLenders.Tests
             {
                 ContactFirstName = "Chelsea"
             };
-            string expected = "Chelsea";
+            string expected = "Chelsea ";
 
             //--Act
             string actual = lender.FullName;
@@ -67,19 +67,19 @@ namespace DreamRoseLenders.Tests
                 ContactFirstName = "Chelsea",
                 ContactLastName = "Russell"
             };
-            Lender.InstanceCount = +1;
+            Lender.InstanceCount += 1;
             _ = new Lender
             {
                 ContactFirstName = "James",
                 ContactLastName = "Russell"
             };
-            Lender.InstanceCount = +1;
+            Lender.InstanceCount += 1;
             _ = new Lender
             {
                 ContactFirstName = "Nathan",
                 ContactLastName = "Russell"
             };
-            Lender.InstanceCount = +1;
+            Lender.InstanceCount += 1;
 
             //--Act
 
