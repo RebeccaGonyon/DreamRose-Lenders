@@ -30,7 +30,6 @@ namespace DreamRoseLenders.Tests
             //--Arrange
             Lender lender = new Lender()
             {
-                ContactFirstName = "",
                 ContactLastName = "Russell"
             };
             string expected = "Russell";
