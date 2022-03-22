@@ -11,8 +11,23 @@
                 return ContactFirstName + " " + ContactLastName;
             }
         }
-        public static int instanceCount;
-        
+        public static int instances = 0;
+
+        public Lender()
+        {
+            instances++;
+        }
+
+        ~Lender()
+        {
+            instances--;
+        }
+
+
+        public static int GetActiveInstances()
+        {
+            return instances;
+        }
 
         public int CompanyId { get; private set; } = 0;
         public string ContactFirstName { get; set; }
@@ -44,15 +59,13 @@
            
         }
 
-        public Lender()
-        {
-        }
-
+       // public Lender()
+          
         public Lender(string companyName, string lenderAddress, string fullName, int companyPhoneNumber) : this(companyName, lenderAddress, fullName)
         {
         }
 
-        public static int InstanceCount { get => instanceCount; set => instanceCount = value; }
+      //  public static int InstanceCount { get => instanceCount; set => instanceCount = value; }
     }
 
 }

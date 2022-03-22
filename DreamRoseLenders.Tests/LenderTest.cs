@@ -58,34 +58,6 @@ namespace DreamRoseLenders.Tests
             Assert.AreEqual(expected, actual);
         }
 
-        [TestMethod]
-        public void StaticTest()
-        {
-            //--Arrange
-            _ = new Lender
-            {
-                ContactFirstName = "Chelsea",
-                ContactLastName = "Russell"
-            };
-            Lender.InstanceCount += 1;
-            _ = new Lender
-            {
-                ContactFirstName = "James",
-                ContactLastName = "Russell"
-            };
-            Lender.InstanceCount += 1;
-            _ = new Lender
-            {
-                ContactFirstName = "Nathan",
-                ContactLastName = "Russell"
-            };
-            Lender.InstanceCount += 1;
-
-            //--Act
-
-            //--Assert
-            Assert.AreEqual(3, Lender.InstanceCount);
-        }
     }
 }
 
