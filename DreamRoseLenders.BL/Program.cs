@@ -8,22 +8,16 @@ namespace DreamRoseLenders.BL
         public static void Main()
 
         {
-             List<Lender> lender = new List<Lender>();
+            List<Lender> lender = new List<Lender>();
             string userInput = "";
 
+            lender = GetLendersFromCsv();
 
-
-             using (var reader = new StreamReader(@"Lender.csv"))
-             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-             {
-                lender = csv.GetRecords<Lender>().ToList();
-             }
-             do
+            do
             {
+                GatherStateInformation();
 
-                Console.WriteLine("Please enter state you need loan in?");
-                userInput = Console.ReadLine().ToLower();
-               
+
                 Console.WriteLine("Lenders who loan in this state are: ");
                 lender.Where(l => l.States.ToLower().Contains(userInput)).ToList().ForEach((lender) =>
                 {
@@ -39,16 +33,32 @@ namespace DreamRoseLenders.BL
                     {
                         Console.WriteLine("The Contact Name is: " + lender.FullName);
                     }
-                        Console.WriteLine("The Company Phone Number is: " + lender.CompanyPhoneNumber);
+                    Console.WriteLine("The Company Phone Number is: " + lender.CompanyPhoneNumber);
 
                 });
                 Console.WriteLine("To exit, type \"exit\" or enter to pick another state");
                 userInput = Console.ReadLine();
             } while (userInput != "exit");
         }
+        public static List<Lender> GetLendersFromCsv()
+            {
+            using (var reader = new StreamReader(@"Lender.csv"))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                var lenders = csv.GetRecords<Lender>().ToList();
+
+                return lenders;
+        }
+        }
+
+        public static string GatherStateInformation()
+        {
+            Console.WriteLine("Please enter state you need loan in?");
+            return Console.ReadLine().ToLower();
+        }
+
     }
 }
-                       
                     
                 
       

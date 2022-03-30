@@ -64,8 +64,6 @@
         public Lender(string companyName, string lenderAddress, string fullName, int companyPhoneNumber) : this(companyName, lenderAddress, fullName)
         {
         }
-
-      //  public static int InstanceCount { get => instanceCount; set => instanceCount = value; }
     }
 
 }
