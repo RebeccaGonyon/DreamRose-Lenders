@@ -27,7 +27,7 @@ namespace DreamRoseLenders.BL
                     if (lender.FullName == null || lender.FullName == " ")
 
                     {
-                        Console.WriteLine("Contact Name: No Name found");
+                       NoContactFound();
                     }
                     else
                     {
@@ -56,7 +56,11 @@ namespace DreamRoseLenders.BL
             Console.WriteLine("Please enter state you need loan in?");
             return Console.ReadLine().ToLower();
         }
-
+        public static void NoContactFound()
+        {
+            Console.WriteLine("Contact Name: No Name found");
+        }
+           
     }
 }
                     
